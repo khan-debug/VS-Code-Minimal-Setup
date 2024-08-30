@@ -1,0 +1,39 @@
+{
+    "workbench.colorTheme": "Aura Dark",
+    "workbench.iconTheme": "material-icon-theme",
+   "editor.tabSize": 2,
+   "editor.fontLigatures": true,
+   "editor.mouseWheelZoom": true,
+   "editor.fontFamily": "Cascadia Codes', Menlo, Monaco 'Courier New', monospace",
+    "editor.wordWrap": "on",
+    "editor.fontsize":14,
+    "editor.cursorBlinking": "phase",
+    "workbench.startupEditor": "newUntitledFile",
+    "files.defaultLanguage": "markdown",
+    "window.zoomLevel": -0.5,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.lineHeight": 38,
+    "breadcrumbs.enabled": false,
+    "editor.fontSize": 16,
+    "workbench.editor.showTabs": "multiple",
+    "editor.guides.indentation": false,
+    "editor.useTabStops": false,
+    "workbench.editor.tabSizing": "fixed",
+    "zenMode.showTabs": "single",
+    "window.menuBarVisibility": "toggle",
+    "workbench.activityBar.location": "bottom",
+    "workbench.sideBar.location": "right",
+    "editor.minimap.enabled": false,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.statusBar.visible": false,
+    "security.workspace.trust.untrustedFiles": "open"
+
+
+
+
+
+    
+
+}
