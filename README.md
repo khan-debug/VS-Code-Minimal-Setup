@@ -1,15 +1,21 @@
 # VSCodium Minimal Setup
 
-A minimal, automated dotfiles repository to synchronize VSCodium settings, keybindings, and extensions across multiple Linux environments.
+A minimal, automated dotfiles repository to synchronize VSCodium settings and extensions across Linux and Windows environments.
 
 🔗 **Repository:** [khan-debug/VS-Code-Minimal-Setup](https://github.com/khan-debug/VS-Code-Minimal-Setup)
 
 ## 🚀 Quick Start (For My Machines)
 
-Run this single command on any new machine to clone the repository, symlink configurations, and install all extensions automatically:
+Run one of these commands on any new machine to clone the repo, symlink configurations, and install all extensions:
 
+**Linux:**
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/khan-debug/VS-Code-Minimal-Setup/main/setup.sh)
+```
+
+**Windows (PowerShell):**
+```powershell
+iex "& { $(irm https://raw.githubusercontent.com/khan-debug/VS-Code-Minimal-Setup/main/setup.ps1) }"
 ```
 
 ## 🛠️ Make It Your Own (For Other Users)
@@ -45,10 +51,10 @@ If you are a visitor wanting to use this template for your own VSCodium setup, y
 
 ```text
 .
-├── setup.sh                 # Automation script (clone, symlink, install)
+├── setup.sh                 # Linux automation script
+├── setup.ps1                # Windows automation script
 └── vscodium/
     ├── settings.json        # User settings
-    ├── keybindings.json     # Custom keybindings
     └── extensions.txt       # Exported list of extensions
 ```
 

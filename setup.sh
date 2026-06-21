@@ -21,12 +21,15 @@ mkdir -p "$VSC_TARGET"
 # 3. Create Symlinks
 echo "Symlinking settings..."
 ln -sf "$VSC_SOURCE/settings.json" "$VSC_TARGET/settings.json"
-ln -sf "$VSC_SOURCE/keybindings.json" "$VSC_TARGET/keybindings.json"
 
 # 4. Install Extensions
 if [ -f "$VSC_SOURCE/extensions.txt" ]; then
-    echo "Installing extensions..."
-    xargs -n 1 codium --install-extension < "$VSC_SOURCE/extensions.txt"
+    if ! command -v codium &>/dev/null; then
+        echo "Warning: 'codium' not found in PATH. Skipping extension install."
+    else
+        echo "Installing extensions..."
+        grep -v '^\s*$\|^\s*#' "$VSC_SOURCE/extensions.txt" | xargs -n 1 codium --install-extension
+    fi
 fi
 
 echo "VSCodium sync complete."

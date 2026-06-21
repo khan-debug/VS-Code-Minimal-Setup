@@ -21,33 +21,37 @@ if (!(Test-Path $VscTarget)) {
 
 # 3. Create Symlinks (or Hard Links as fallback)
 Write-Host "Symlinking settings..." -ForegroundColor Cyan
-$files = @("settings.json", "keybindings.json")
+$files = @("settings.json")
 
 foreach ($file in $files) {
     $source = "$VscSource\$file"
     $target = "$VscTarget\$file"
-    
-    if (Test-Path $target) { 
-        Remove-Item $target -Force 
+
+    if (Test-Path $target) {
+        Remove-Item $target -Force
     }
-    
+
     # Windows requires Developer Mode or Administrator privileges for Symbolic Links.
-    # We try Symbolic Links first, and fall back to Hard Links if it fails.
+    # We try Symbolic Links first, and fall back to Copy if it fails.
     try {
         New-Item -ItemType SymbolicLink -Path $target -Target $source -Force | Out-Null
         Write-Host " -> Symlinked $file" -ForegroundColor Green
     } catch {
-        Write-Host " -> Symlink failed (needs Admin). Creating Hard Link instead for $file..." -ForegroundColor Yellow
-        New-Item -ItemType HardLink -Path $target -Target $source -Force | Out-Null
+        Write-Host " -> Symlink failed (needs Admin). Copying instead for $file..." -ForegroundColor Yellow
+        Copy-Item $source $target -Force
     }
 }
 
 # 4. Install Extensions
 $extFile = "$VscSource\extensions.txt"
 if (Test-Path $extFile) {
-    Write-Host "Installing extensions..." -ForegroundColor Cyan
-    Get-Content $extFile | Where-Object { $_.Trim() -ne "" } | ForEach-Object {
-        codium --install-extension $_
+    if (!(Get-Command codium -ErrorAction SilentlyContinue)) {
+        Write-Host "Warning: 'codium' not found in PATH. Skipping extension install." -ForegroundColor Yellow
+    } else {
+        Write-Host "Installing extensions..." -ForegroundColor Cyan
+        Get-Content $extFile | Where-Object { $_.Trim() -ne "" } | ForEach-Object {
+            codium --install-extension $_
+        }
     }
 }
 
