@@ -1,0 +1,5 @@
+amerey.blackplusplus
+anthropic.claude-code
+daltonmenezes.aura-theme
+pkief.material-icon-theme
+realeinar.theme-dracula-midnight

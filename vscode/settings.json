@@ -1,0 +1,22 @@
+{
+  "workbench.activityBar.location": "top",
+  "window.menuBarVisibility": "compact",
+  "workbench.colorTheme": "Black++ Theme",
+  "git.autofetch": true,
+  "claudeCode.environmentVariables": [
+    { "name": "ANTHROPIC_BASE_URL", "value": "http://localhost:8082" },
+    { "name": "ANTHROPIC_AUTH_TOKEN", "value": "freecc" },
+    { "name": "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY", "value": "1" },
+    { "name": "CLAUDE_CODE_AUTO_COMPACT_WINDOW", "value": "190000" }
+  ],
+  "claudeCode.preferredLocation": "panel",
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  }
+}
